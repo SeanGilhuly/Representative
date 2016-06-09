@@ -11,9 +11,7 @@ import UIKit
 class CustomStateDetailTableViewCell: UITableViewCell {
     
     //MARK: - Property
-    
-    var representative: [Representative] = []
-    
+        
     //MARK: - IBOutlets
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,6 +34,4 @@ class CustomStateDetailTableViewCell: UITableViewCell {
         websiteLabel.text = representative.link
         websiteLabel.text = representative.phone
     }
-    
-
 }

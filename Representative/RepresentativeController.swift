@@ -10,29 +10,28 @@ import Foundation
 
 class RepresentativeController {
     
-    static let baseURL = "http://whoismyrepresentative.com"
+    static let baseURL = "http://whoismyrepresentative.com/getall_reps_bystate.php"
     
-    
-    static func searchURLForState(state: String) -> NSURL {
-        return NSURL(string: baseURL + "/getall_reps_bystate.php?state=\(state)&output=json")!
-    }
-    
-    
-    static func searchRepsByState(state: String, completion: (representative: [Representative]) -> Void) {
+    static func searchRepsByState(state: String, completion: (representatives: [Representative]) -> Void) {
         
-        let url = searchURLForState(state)
+        guard let url = NSURL(string: baseURL) else {
+            completion(representatives: [])
+            return
+        }
         
-        NetworkController.performRequestForURL(url, httpMethod: .Get) { (data, error) in
+        let urlParameters = ["state": state, "output": "json"]
+        
+        NetworkController.performRequestForURL(url, httpMethod: .Get, urlParameters: urlParameters) { (data, error) in
             guard let data = data,
                 json = (try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)) as? [String:AnyObject],
                 representativeDictionaries = json ["results"] as? [[String:AnyObject]]
                 else {
-                    completion(representative: [])
+                    completion(representatives: [])
                     return
             }
             
             let representatives = representativeDictionaries.flatMap({Representative(jsonDictionary: $0)})
-            completion(representative: representatives)
+            completion(representatives: representatives)
         }
     }
 }

@@ -22,6 +22,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Gsg-Af-4B5" kind="show" identifier="toStateDetailSegue" id="t35-pm-YVx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,10 +48,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repCell" id="T1K-2D-nV3" customClass="CustomStateDetailTableViewCell" customModule="Representative" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T1K-2D-nV3" id="1C8-2h-mbz">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XbM-QP-dA8">
@@ -121,6 +124,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8rz-zh-Pl1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
